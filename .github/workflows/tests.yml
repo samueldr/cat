@@ -1,0 +1,22 @@
+name: "Tests"
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    name: Tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04-arm
+          - ubuntu-24.04
+          - macos-13 # most recent x86_64
+          - macos-15 # most recent aarch64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: samueldr/nix-build-action@latest
+        with:
+          expression-file: test.nix
