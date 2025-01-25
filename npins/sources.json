@@ -1,0 +1,11 @@
+{
+  "pins": {
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05beta743381.825479c345a7/nixexprs.tar.xz",
+      "hash": "0qp0wp1d32mzr0lwnxb89h3cgzlgfidnymyfcvlw3vmmwvd3r6jp"
+    }
+  },
+  "version": 3
+}
