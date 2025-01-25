@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import (import ./npins).nixpkgs {} }:
 
 {
   shellcheck = pkgs.callPackage (
