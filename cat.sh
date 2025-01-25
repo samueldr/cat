@@ -33,7 +33,11 @@ _cat_pipe() {
         IFS=""
 		# shellcheck disable=SC3045
         while read -n 1 -d "" -r "char"; do
-			printf "%c" "$char"
+			if test "$char" = ""; then
+				printf "\x00"
+			else
+				printf "%c" "$char"
+			fi
         done
     )
 }
