@@ -22,7 +22,6 @@
   ) {};
   unit-tests = pkgs.callPackage (
     { runCommand
-    , busybox-sandbox-shell
     , xxd
     }:
 
@@ -30,7 +29,9 @@
       nativeBuildInputs = [
         xxd
       ];
-      shell = "${busybox-sandbox-shell}/bin/sh";
+      # NOTE: this impurely tests against this Nix configuration's impure sandbox shell.
+      # This is because `busybox` is not available on all architectures (i.e. darwin).
+      shell = "/bin/sh";
       script = ./cat.sh;
     } ''
       mkdir -p "$out"
